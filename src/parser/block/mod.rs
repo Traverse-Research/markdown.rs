@@ -51,10 +51,10 @@ pub fn parse_blocks(md: &str) -> Vec<Block> {
                 // add a newline between linebreaks
                 // except when we have a break element or nothing
                 match (t.last(), spans.first()) {
-                    (Some(&Break), _) => {}
-                    (_, None) => {}
-                    (None, _) => {}
-                    _ => t.push(Text("\n".to_owned())),
+                    (Some(&Break), _) => {},
+                    (_, None) => t.push(Text("".to_owned())),
+                    (None, _) => {},
+                    _ => t.push(Text("".to_owned())),
                 }
 
                 t.extend_from_slice(&spans);
